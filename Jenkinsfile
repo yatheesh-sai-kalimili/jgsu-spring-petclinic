@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library("global-pipeline-libraries@master") _
+@Library("global-pipeline-libraries@main") _
 mavenBuild{
 service="pipeline-library"
 branch="main"
