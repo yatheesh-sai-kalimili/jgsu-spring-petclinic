@@ -5,5 +5,5 @@
                       service="pipeline-library"
                       branch="main"
                       url="https://github.com/yatheesh-sai-kalimili/jgsu-spring-petclinic.git"
-                      buildType="d"
+                      buildType="Java build"
                      }
