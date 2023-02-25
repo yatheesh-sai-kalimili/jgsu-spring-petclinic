@@ -7,4 +7,3 @@ mavenBuild{
                url="https://github.com/yatheesh-sai-kalimili/jgsu-spring-petclinic.git"
                 }
 
-}
