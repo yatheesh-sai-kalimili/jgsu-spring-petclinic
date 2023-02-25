@@ -1,11 +1,7 @@
 #!/usr/bin/env groovy
 
 @Library("global-pipeline-libraries@main") _
-mavenBuild{
-service="pipeline-library"
-branch="main"
-url="https://github.com/yatheesh-sai-kalimili/pipeline-library.git"
-}
+
 pipeline {
     agent any
     environment {
@@ -44,7 +40,11 @@ pipeline {
         }
     }
 }
-
+mavenBuild{
+service="pipeline-library"
+branch="main"
+url="https://github.com/yatheesh-sai-kalimili/pipeline-library.git"
+}
 void auditTools(){
     sh '''
        git version
