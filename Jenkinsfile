@@ -3,13 +3,27 @@
 
 pipeline {
     agent any
+    environment {
+        RELEASE='20.04'
+    }
     triggers { pollSCM('* * * * *') }
     stages {
         // implicit checkout stage
 
         stage('Build') {
+            environment {
+                LOG_LEVEL='INFO'
+            }
+            input {
+               message 'Deploy?'
+               ok 'Do it!'
+               parameters {
+                   string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+               }
+            }
             steps {
                 sh './mvnw clean package'
+                echo "Build release ${RELEASE} with log level ${LOG_LEVEL}..."
             }
         }
     }
