@@ -43,6 +43,5 @@ pipeline {
 void auditTools(){
     sh '''
        git version
-       docker version
     '''
 }
