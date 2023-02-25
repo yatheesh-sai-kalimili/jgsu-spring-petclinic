@@ -1,6 +1,11 @@
 #!/usr/bin/env groovy
-// shebang tells most editors to treat as groovy (syntax highlights, formatting, etc)
 
+@Library("global-pipeline-libraries@master") _
+mavenBuild{
+service="pipeline-library"
+branch="main"
+url="https://github.com/yatheesh-sai-kalimili/pipeline-library.git"
+}
 pipeline {
     agent any
     environment {
@@ -26,7 +31,7 @@ pipeline {
                }
             }
             steps {
-                sh './mvnw clean package'
+                mavenBuild()
                 echo "Build release ${RELEASE} with log level ${LOG_LEVEL}..."
             }
         }
