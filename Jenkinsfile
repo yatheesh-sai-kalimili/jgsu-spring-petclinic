@@ -1,7 +1,11 @@
 #!/usr/bin/env groovy
 
 @Library("global-pipeline-libraries@main") _
-
+mavenBuild{
+               service="pipeline-library"
+               branch="main"
+               url="https://github.com/yatheesh-sai-kalimili/jgsu-spring-petclinic.git"
+                }
 pipeline {
     agent any
     environment {
@@ -39,11 +43,7 @@ pipeline {
     //    }
     //}
 }
-mavenBuild{
-               service="pipeline-library"
-               branch="main"
-               url="https://github.com/yatheesh-sai-kalimili/jgsu-spring-petclinic.git"
-                }
+
 void auditTools(){
     sh '''
        git version
