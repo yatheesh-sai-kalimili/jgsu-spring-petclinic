@@ -27,7 +27,6 @@ pipeline {
                }
             }
             steps {
-                mavenBuild()
                 echo "Build release ${RELEASE} with log level ${LOG_LEVEL}..."
             }
         }
@@ -41,10 +40,10 @@ pipeline {
     }
 }
 mavenBuild{
-service="pipeline-library"
-branch="main"
-url="https://github.com/yatheesh-sai-kalimili/pipeline-library.git"
-}
+               service="pipeline-library"
+               branch="main"
+               url="https://github.com/yatheesh-sai-kalimili/jgsu-spring-petclinic.git"
+                }
 void auditTools(){
     sh '''
        git version
