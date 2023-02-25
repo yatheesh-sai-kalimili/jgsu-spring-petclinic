@@ -9,7 +9,11 @@ pipeline {
     triggers { pollSCM('* * * * *') }
     stages {
         // implicit checkout stage
-
+        stage('Audit tools') {
+           steps{
+               auditTools()
+           }
+        }
         stage('Build') {
             environment {
                 LOG_LEVEL='INFO'
@@ -34,4 +38,11 @@ pipeline {
             archiveArtifacts 'target/*.jar'
         }
     }
+}
+
+void auditTools(){
+    sh '''
+       git version
+       docker version
+    '''
 }
