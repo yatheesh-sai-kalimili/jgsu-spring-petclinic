@@ -9,7 +9,7 @@ url="https://github.com/yatheesh-sai-kalimili/pipeline-library.git"
 pipeline {
     agent any
     tools {
-        maven 'maven 3.8.6'
+        maven 'maven'
     }
     environment {
         RELEASE='20.04'
